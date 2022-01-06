@@ -173,9 +173,9 @@ void DW1000RangingClass::startAsAnchor(char address[], const byte mode[], const 
 		_currentShortAddress[1] = random(0, 256);
 	}
 	else {
-		// we use first two bytes in addess for short address
-		_currentShortAddress[0] = _currentAddress[0];
-		_currentShortAddress[1] = _currentAddress[1];
+		// we use least significant two bytes of full EUI address for short address
+		_currentShortAddress[0] = _currentAddress[LEN_EUI-1];
+		_currentShortAddress[1] = _currentAddress[LEN_EUI-2];
 	}
 	
 	//we configur the network for mac filtering
@@ -206,9 +206,9 @@ void DW1000RangingClass::startAsTag(char address[], const byte mode[], const boo
 		_currentShortAddress[1] = random(0, 256);
 	}
 	else {
-		// we use first two bytes in addess for short address
-		_currentShortAddress[0] = _currentAddress[0];
-		_currentShortAddress[1] = _currentAddress[1];
+		// we use least significant two bytes of full EUI address for short address
+		_currentShortAddress[0] = _currentAddress[LEN_EUI-1];
+		_currentShortAddress[1] = _currentAddress[LEN_EUI-2];
 	}
 	
 	//we configur the network for mac filtering
