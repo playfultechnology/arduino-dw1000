@@ -178,14 +178,14 @@ void DW1000RangingClass::startAsAnchor(char address[], const byte mode[], const 
 		_currentShortAddress[1] = _currentAddress[LEN_EUI-2];
 	}
 	
-	//we configur the network for mac filtering
+	// Configure the network for mac filtering
 	//(device Address, network ID, frequency)
 	DW1000Ranging.configureNetwork(_currentShortAddress[0]*256+_currentShortAddress[1], 0xDECA, mode);
 	
-	//general start:
+	// general start:
 	generalStart();
 	
-	//defined type as anchor
+	// defined type as anchor
 	_type = ANCHOR;
 	
 	Serial.println("### ANCHOR ###");
@@ -211,12 +211,12 @@ void DW1000RangingClass::startAsTag(char address[], const byte mode[], const boo
 		_currentShortAddress[1] = _currentAddress[LEN_EUI-2];
 	}
 	
-	//we configur the network for mac filtering
+	// Configure the network for mac filtering
 	//(device Address, network ID, frequency)
 	DW1000Ranging.configureNetwork(_currentShortAddress[0]*256+_currentShortAddress[1], 0xDECA, mode);
 	
 	generalStart();
-	//defined type as tag
+	// defined type as tag
 	_type = TAG;
 	
 	Serial.println("### TAG ###");
